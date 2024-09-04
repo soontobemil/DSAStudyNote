@@ -14,4 +14,5 @@ def find_nemo (array):
 
 find_nemo(large)
 
-# How do we measure efficency and scalability? 
+# How do we measure efficency and scalability?
+# Big O(n) --> Linear Time (# of Inputs == # of Operations)
