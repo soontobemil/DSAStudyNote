@@ -13,3 +13,5 @@ def find_nemo (array):
     print(f"Time taken {t1 - t0} milliseconds") # This measures the time it has taken to run the function
 
 find_nemo(large)
+
+# How do we measure efficency and scalability? 
