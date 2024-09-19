@@ -55,6 +55,41 @@ class LinkedList():
         self.length +=1
         return self.printList()
 
+    def linkedList_remove(self, index):
+        if index == 0:
+            self.head = self.head["next"]
+            self.length -=1
+            return
+
+        def traverseToIndex(value):
+            counter = 0
+            currentNode = self.head
+            while counter != index and currentNode is not None:
+                currentNode = currentNode["next"]
+                counter +=1
+            return currentNode
+
+        previous_node = traverseToIndex(index - 1)
+        unwanted_node = previous_node["next"]
+        previous_node["next"] = unwanted_node["next"]
+        self.length -=1
+        return self.printList()
+
+    def reverse(self):
+        previous_node = None
+        current_node = self.head
+
+        while current_node is not None:
+            next_node = current_node["next"]
+            current_node["next"] = previous_node
+
+            previous_node = current_node
+            current_node = next_node
+
+        self.tail = self.head
+        self.head = previous_node
+
+        return self.printList()
 
     def printList(self):
         array = []
@@ -72,4 +107,6 @@ myLinkedList.linkedList_append(20)
 myLinkedList.linkedList_append(550)
 myLinkedList.linkedList_prepend(77)
 myLinkedList.linkedList_insert(1, 667777)
+# myLinkedList.linkedList_remove(1)
+myLinkedList.reverse()
 print(myLinkedList.printList())
